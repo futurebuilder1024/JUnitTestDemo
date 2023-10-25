@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.junittest'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.junittest"
+        minSdk 28
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir:"libs",includes: ["*.jar","*.arr"])
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.media3:media3-common:1.0.0-alpha03'
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
+//    implementation 'org.carconnectivity.android.ccc.digitalkey:1.0.7'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+    // Espresso
+    // Core library
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //    AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    testImplementation "org.mockito:mockito-core:2.8.9"
+    androidTestImplementation "org.mockito:mockito-android:2.8.9"
+
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+
+    testImplementation 'io.mockk:mockk:1.13.8'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+
+    //VIVO 数字钥匙
+    implementation "technology.cariad.cat.external.vivo:dkfapi_vehicleoem:230317"
+    implementation "technology.cariad.cat:carkeykit-china:2023.4.1"
+
+
+    api "io.ktor:ktor-client-core:$ktor_version"
+    api "io.ktor:ktor-client-okhttp:$ktor_version"
+    api "io.ktor:ktor-client-auth:$ktor_version"
+
+    api "io.ktor:ktor-client-logging:$ktor_version"
+    api "io.ktor:ktor-serialization-kotlinx-json:$ktor_version"
+    api "io.ktor:ktor-client-cio:$ktor_version"
+    api "io.ktor:ktor-client-content-negotiation:$ktor_version"
+}
