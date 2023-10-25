@@ -1,4 +1,4 @@
-package com.vw.vwmdkdemo
+package com.example.junittest
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
